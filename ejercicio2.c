@@ -2,37 +2,43 @@
 /* Escribir un programa en C que genere una matriz de N x N y la llene con 0 
 excepto la diagonal principal que deberá tener 1.
 */
-#define RENGLO 2
-#define COLUMNA 2
+#define R 10
+#define C 10
 int main ()
-{    
+{  
+
      int i,j ;
-     int renglo, columna;
-     int  matriz[RENGLO][COLUMNA];
+    
+     int  matriz[R][C];
     
        
  
- if (RENGLO==COLUMNA)
- {
-   for (i=0; i<RENGLO; i++ )
+ 
+   for (i=0; i<R; i++ )
    {
-     for (j=0; j<COLUMNA; j++ )
+     for (j=0; j<C; j++ )
      {
         if (i==j)
-        matriz[i][j]=1;
-        else matriz[i][j]=0;
-        
+         matriz[i][j]=1;
+        else
+          matriz[i][j]=0; 
      }   
    }
-  printf("matriz[%d][%d]", i,j);
-         scanf("%d",&matriz [i][j]);
- }
- else printf("esta no es una matriz cuadrada");
-
-        
    
+   for (i=0; i<R; i++ )
+   {
+     for (j=0; j<C; j++ )
+     { 
+        printf("%d  ",matriz [i] [j]);
+        //scanf("%d",&matriz [i][j]);
+     }
+     printf("\n");
+   }
+ 
+ 
+ 
 
-   fflush(stdin);
-   getchar();
-return 0;
+ fflush(stdin);
+ getchar();
+ return 0;
 }
