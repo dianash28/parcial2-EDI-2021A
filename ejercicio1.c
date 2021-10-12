@@ -34,9 +34,10 @@ int main ()
      for (j=0; j<R; j++ )
      {
        suma=suma+matriz[j][i];
-       promedio=suma/R; 
+        
        
      }
+     promedio=suma/R;
      printf("suma de la columna: %d:\n %f \npromedio \n:%f", i, suma, promedio);
      printf("\n");
        
