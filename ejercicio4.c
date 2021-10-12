@@ -4,36 +4,53 @@ elemento mayor de la matriz indicando en que posición (renglon - columna) lo en
 #include <stdio.h>
 #define R 2
 #define C 2
-
+void capturaMatriz(int m[R][C]);
+int buscarMayor(int m[R][C],int *i,int *j);
 int main ()
-{ int matriz[R][C];
+{ 
+  int matriz[R][C];
   int i,j ;
   int nummayor=0;
   int posicion;
-   for (i=0; i<R; i++ )
-   {
-     for (j=0; j<C; j++ )
-     {
-         printf("matriz[%d][%d]", i,j);
-         scanf("%d",&matriz [i][j]);
-     }
-   }
-     nummayor=matriz[0][0];
-   for (i=0; i<R; i++ )
-   {
-     for (j=0; j<C; j++ )
-     {
-        if(nummayor<matriz[i][j])
-        {
-           nummayor=matriz[i][j];
-        }
-     }
-        printf("el mayor es %d en la posicion %d ",nummayor,matriz[i][j]);
-        scanf("%d %d",nummayor,&matriz[i][j]);    
-   }
+
+   capturaMatriz(matriz);
+   nummayor=buscarMayor(matriz,&i,&j);
+
+     
+   printf("el mayor es %d en la posicion [%d][%d] ",nummayor,i,j);
+   scanf("%d %d",nummayor,&matriz[i][j]);  
    fflush(stdin);
  getchar();
   return 0;
 }
-//aqui solo me compara los dos primeros terminos.
-//y la posicion me la pone mal.
+int buscarMayor(int m[R][C],int *i,int *j)
+{
+  int nummayor=m[0][0];
+  int ren,col;
+  for (ren=0; ren<R; ren++ )
+   {
+     for (col=0; col<C; col++ )
+     {
+        if(nummayor<m[ren][col])
+        {
+           nummayor=m[ren][col];
+           *i=ren;
+           *j=col;
+        }
+      }  
+   }
+   return nummayor;    
+}
+void capturaMatriz(int m[R][C])
+{
+  int i,j;
+  for (i=0; i<R; i++ )
+   {
+     for (j=0; j<C; j++ )
+     {
+         printf("matriz[%d][%d]", i,j);
+         scanf("%d",&m[i][j]);
+
+     }
+   }
+}
