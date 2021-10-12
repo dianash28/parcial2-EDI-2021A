@@ -8,6 +8,8 @@
 int main ()
 { int matriz[R][C];
   int i,j ;
+  int simetrica;
+
   for (i=0; i<R; i++ )
    {
      for (j=0; j<C; j++ )
@@ -16,35 +18,27 @@ int main ()
          scanf("%d",&matriz [i][j]);
      }
    }
-   /*for (i=0; i<R; i++ )
-   {
+  
+    
+  for (i=0; i<R; i++ )
+  {
      for (j=0; j<C; j++ )
      {
-         scanf("%d",&matriz [i][j]);
-     }
-         printf("\n");
-   }
-   */
-    
-        for (i=0; i<R; i++ )
-       {
-           for (j=0; j<C; j++ )
-            {
-              if(matriz[i][j]==matriz[j][i])
-              {
-                 printf("si es una matriz simetrica");
-              }
-              else 
-                 printf("no es una matriz simetrica ");
+         if(matriz[i][j]!=matriz[j][i])
+          simetrica=0;
 
-            }
-       
-              
-       }
+     }      
+  }
     
+  if (simetrica==0)
+     printf("no es una matriz simetrica");
+  else 
+      printf("si es una matriz simetrica");
+
+
+
 
 fflush(stdin);
  getchar();
    return 0;
 }   
-//maestra aqui se repiten, no salen del condicional.
